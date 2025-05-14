@@ -1,61 +1,97 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 🧑‍🌾 Sistema de Registro de Ferias Comunitarias de Emprendimiento
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Aplicación web desarrollada en Laravel para registrar ferias comunitarias de emprendimiento en barrios de Managua, así como los emprendedores que participarán en cada feria.
 
-## About Laravel
+Este sistema fue desarrollado como parte del taller práctico de la clase de **Diseño Web** de la **Universidad Americana (UAM)**.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+---
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 📌 Funcionalidades principales
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- Registro, edición y eliminación de **Ferias**
+- Registro, edición y eliminación de **Emprendedores**
+- Asociación **muchos a muchos** entre ferias y emprendedores
+- Listado detallado con vínculos entre ambas entidades
+- Autenticación con Laravel Breeze
+- Formularios con validaciones y mensajes amigables
+- Control de versiones con Git y colaboración por ramas
 
-## Learning Laravel
+---
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## 🛠️ Tecnologías utilizadas
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+- Laravel 10
+- Laravel Breeze (Blade + Tailwind CSS)
+- PHP 8+
+- MySQL
+- Node.js y npm
+- Git y GitHub
+- Laragon (recomendado como entorno local)
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+---
 
-## Laravel Sponsors
+## 🧱 Requisitos del sistema
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+- PHP >= 8.1
+- Composer
+- Node.js y npm
+- MySQL
+- Laravel 10+
+- Navegador web moderno
+- Entorno como **Laragon**, **XAMPP** o similar
 
-### Premium Partners
+---
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+## 🚀 Instalación paso a paso
 
-## Contributing
+1. Clonar el repositorio:
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+```bash
+git clone https://github.com/brayancode/ferias-emprendimiento.git
+cd ferias-emprendimiento
+Instalar dependencias de PHP:
 
-## Code of Conduct
+bash
+Copiar
+Editar
+composer install
+Instalar dependencias de frontend:
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+bash
+Copiar
+Editar
+npm install
+npm run dev
+Crear archivo .env:
 
-## Security Vulnerabilities
+bash
+Copiar
+Editar
+cp .env.example .env
+Configurar la conexión a base de datos en el archivo .env:
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+ini
+Copiar
+Editar
+DB_DATABASE=nombre_de_tu_bd
+DB_USERNAME=tu_usuario
+DB_PASSWORD=tu_contraseña
+Generar la clave de la app:
 
-## License
+bash
+Copiar
+Editar
+php artisan key:generate
+Ejecutar migraciones:
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+bash
+Copiar
+Editar
+php artisan migrate
+Iniciar servidor local:
+
+bash
+Copiar
+Editar
+php artisan serve
+Luego, podés acceder a la app en: http://localhost:8000
