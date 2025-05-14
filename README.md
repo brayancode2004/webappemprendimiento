@@ -47,51 +47,35 @@ Este sistema fue desarrollado como parte del taller práctico de la clase de **D
 1. Clonar el repositorio:
 
 ```bash
-git clone https://github.com/brayancode/ferias-emprendimiento.git
-cd ferias-emprendimiento
+git clone https://github.com/brayancode/webappemprendimiento.git
+cd webappemprendimiento
 Instalar dependencias de PHP:
-
-bash
-Copiar
-Editar
 composer install
+
 Instalar dependencias de frontend:
 
-bash
-Copiar
-Editar
 npm install
 npm run dev
+
 Crear archivo .env:
 
-bash
-Copiar
-Editar
 cp .env.example .env
+
 Configurar la conexión a base de datos en el archivo .env:
 
-ini
-Copiar
-Editar
-DB_DATABASE=nombre_de_tu_bd
-DB_USERNAME=tu_usuario
-DB_PASSWORD=tu_contraseña
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=dbemprendedores
+DB_USERNAME=root
+DB_PASSWORD=
+
 Generar la clave de la app:
-
-bash
-Copiar
-Editar
 php artisan key:generate
+
 Ejecutar migraciones:
-
-bash
-Copiar
-Editar
 php artisan migrate
-Iniciar servidor local:
 
-bash
-Copiar
-Editar
+Iniciar servidor local:
 php artisan serve
-Luego, podés acceder a la app en: http://localhost:8000
+
