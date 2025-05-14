@@ -1,0 +1,66 @@
+<x-app-layout>
+    <div class="max-w-xl mx-auto py-8">
+        <h1 class="text-2xl font-bold mb-4">Editar Feria</h1>
+
+        @if ($errors->any())
+            <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-2 mb-4">
+                <ul class="list-disc pl-5">
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
+        @if (session('success'))
+            <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-2 mb-4">
+                {{ session('success') }}
+            </div>
+        @endif
+
+        <form action="{{ route('ferias.update', $feria) }}" method="POST" class="space-y-4">
+            @csrf
+            @method('PUT')
+
+            <div>
+                <label class="block">Nombre de la feria</label>
+                <input type="text" name="nombre" value="{{ old('nombre', $feria->nombre) }}" class="w-full border rounded px-3 py-2">
+            </div>
+
+            <div>
+                <label class="block">Fecha del evento</label>
+                <input type="date" name="fecha" value="{{ old('fecha', $feria->fecha) }}" class="w-full border rounded px-3 py-2">
+            </div>
+
+            <div>
+                <label class="block">Lugar</label>
+                <input type="text" name="lugar" value="{{ old('lugar', $feria->lugar) }}" class="w-full border rounded px-3 py-2">
+            </div>
+
+            <div>
+                <label class="block">Descripción</label>
+                <textarea name="descripcion" rows="3" class="w-full border rounded px-3 py-2">{{ old('descripcion', $feria->descripcion) }}</textarea>
+            </div>
+
+            <div>
+                <label class="block font-semibold mb-1">Emprendedores participantes</label>
+                <div class="border rounded px-3 py-2 space-y-2 max-h-60 overflow-y-auto">
+                    @foreach ($emprendedores as $emprendedor)
+                        <div class="flex items-center space-x-2">
+                            <input
+                                type="checkbox"
+                                id="emp{{ $emprendedor->id }}"
+                                name="emprendedores[]"
+                                value="{{ $emprendedor->id }}"
+                                {{ in_array($emprendedor->id, old('emprendedores', $feria->emprendedores->pluck('id')->toArray())) ? 'checked' : '' }}
+                            >
+                            <label for="emp{{ $emprendedor->id }}">{{ $emprendedor->nombre }} — {{ $emprendedor->rubro }}</label>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+
+            <button type="submit" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Guardar cambios</button>
+        </form>
+    </div>
+</x-app-layout>
